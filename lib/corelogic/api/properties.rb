@@ -1,4 +1,5 @@
 require "corelogic/response_parser"
+require "corelogic/collection"
 
 module Corelogic
   module API
@@ -7,7 +8,7 @@ module Corelogic
       def search(options = {})
         path = 'property'
         response = connection.get(path, params: options)
-        Corelogic::Property.new(Corelogic::ResponseParser.perform(response))
+        Corelogic::Collection.new(Corelogic::Property, Corelogic::ResponseParser.perform(response))
       end
 
     end

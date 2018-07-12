@@ -15,16 +15,21 @@ Gem::Specification.new do |spec|
   spec.license       = "MIT"
 
   spec.files         = Dir[
-    'README.md',
-    'LICENSE',
-    'lib/**/*'
-  ]
+                          'README.md',
+                          'LICENSE',
+                          'lib/**/*'
+                        ]
   spec.bindir        = "bin"
 
   spec.require_paths = ["lib"]
   spec.required_ruby_version = '~> 2.4'
 
-   # a b c d e f g h i j k l m n o p q r s t u v w x y z
+  # a b c d e f g h i j k l m n o p q r s t u v w x y z
+  spec.add_dependency 'dry-auto_inject'
+  spec.add_dependency 'dry-container'
+  spec.add_dependency 'dry-initializer'
+  spec.add_dependency 'http', '~> 3.0'
+
   spec.add_development_dependency "bundler", "~> 1.13"
   spec.add_development_dependency "pry"
   spec.add_development_dependency "rake", "~> 10.0"

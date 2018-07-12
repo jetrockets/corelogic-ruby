@@ -25,9 +25,9 @@ module Corelogic
       end
     end
 
-      def to_a
-        @members
-      end
+    def to_a
+      @members
+    end
 
   end
 end

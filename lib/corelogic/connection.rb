@@ -17,14 +17,18 @@ module Corelogic
     end
 
     def post(path, params = {})
-      HTTP.auth("Bearer #{bearer_token}").post(url(path), params)
+      HTTP.auth(bearer_auth_header).post(url(path), params)
     end
 
     def get(path, params = {})
-      HTTP.auth("Bearer #{bearer_token}").get(url(path), params)
+      HTTP.auth(bearer_auth_header).get(url(path), params)
     end
 
     private
+
+    def bearer_auth_header
+      "Bearer #{bearer_token}"
+    end
 
     def url(path)
       URI.join(BASE_PATH, path)

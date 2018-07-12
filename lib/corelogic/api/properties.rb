@@ -1,3 +1,5 @@
+require "corelogic/utils"
+
 module Corelogic
   module API
     module Properties
@@ -6,7 +8,9 @@ module Corelogic
         path = 'property'
         response = connection.get(path, params: options)
         # TODO: Implement Responce Parser
-        ::Corelogic::Property.new(response.parse['data'])
+
+        Corelogic::Utils.deep_symbolize_keys response.parse(:json)
+        # ::Corelogic::Property.new(response.parse['data'])
       end
 
     end

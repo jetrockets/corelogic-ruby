@@ -8,7 +8,7 @@ module Corelogic
         path = 'oauth/token'
         response = connection.post_basic_auth(path, params: options)
 
-        response.parse['access_token']
+        response.parse(:json)['access_token']
       end
     end
   end

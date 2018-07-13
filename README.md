@@ -49,6 +49,14 @@ result = Corelogic::Property.search(zip5: '0000', address: '103 Birchwood Ave, L
 ```
 Returns `Corelogic::Error::NotFound: No records returned from search`
 
+### Property Ownership
+Get detailed property ownership data based on an input CoreLogic PropertyID.
+```ruby
+ownership = result.first.ownership
+=> #<Corelogic::Property::Ownership:0x007fe422132460 ...>
+```
+Where `result` - the result of success Property Search/
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/jetrockets/corelogic-ruby.

@@ -1,6 +1,7 @@
 require "corelogic/response_parser"
 require "corelogic/collection"
 require "corelogic/property"
+require "corelogic/property/ownership"
 
 module Corelogic
   module API
@@ -14,6 +15,12 @@ module Corelogic
       def search(options = {})
         response = perform_connection.get(SEARCH_PATH, params: options)
         Corelogic::Collection.new(Corelogic::Property, response_parser.perform(response))
+      end
+
+      def ownership(property_id)
+        path = "property/#{property_id}/ownership"
+        response = perform_connection.get(path)
+        Property::Ownership.new(response_parser.perform(response))
       end
 
       private

@@ -30,5 +30,9 @@ module Corelogic
     def self.search(options)
       Corelogic.properties.search(options)
     end
+
+    def ownership
+      Corelogic.properties.ownership(self.id)
+    end
   end
 end

@@ -1,12 +1,10 @@
 module Corelogic
   class Collection
     extend Forwardable
-
-    DEFAULT_RECORDS_LIMIT = 10
-
     def_delegators :@members, *[].public_methods
 
-    attr_reader :members, :klass, :raw_hash, :total_pages, :current_page, :limit_value
+    DEFAULT_RECORDS_LIMIT = 10
+    attr_reader :members, :klass, :raw_hash, :total_pages, :current_page, :limit_value, :total_records
 
     def initialize(klass, raw_hash)
       @klass = klass
@@ -14,7 +12,8 @@ module Corelogic
 
       @total_pages = raw_hash[:totalPages] || 1
       @current_page = raw_hash[:pageNumber] || 1
-      @limit_value = raw_hash[:totalRecords] || DEFAULT_RECORDS_LIMIT
+      @limit_value = raw_hash[:pageSize] || DEFAULT_RECORDS_LIMIT
+      @total_records = raw_hash[:totalRecords]
 
       if !raw_hash[:data].nil? && !raw_hash[:data].empty?
         @members = raw_hash[:data].map do |record|

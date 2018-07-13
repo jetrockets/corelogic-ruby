@@ -35,7 +35,7 @@ Corelogic.configure do c
 end
 ```
 ## Usage
-###Property Search
+### Property Search
 Search the CoreLogic database for a property based on the input address and returns a unique CoreLogic PropertyID for use in subsequent API calls for other CoreLogic Property Data. Requires address and either zip5 or city and state.
 For example:
 ```ruby
@@ -45,9 +45,10 @@ If the properties are found, the `result` will contain an array of `Corelogic::P
 
 Otherwise, if nothing is found:
 ```ruby
-res = Corelogic::Property.search(zip5: '0000', address: '103 Birchwood Ave, Longmeadow, MA, 01106')
-Corelogic::Error::NotFound: No records returned from search
+result = Corelogic::Property.search(zip5: '0000', address: '103 Birchwood Ave, Longmeadow, MA, 01106')
 ```
+Returns `Corelogic::Error::NotFound: No records returned from search`
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/jetrockets/corelogic-ruby.

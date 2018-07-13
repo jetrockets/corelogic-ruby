@@ -26,7 +26,9 @@ module Corelogic
     option :parcelSequence, proc(&:to_s), as: :parcel_sequence
     option :carrierRoute, proc(&:to_s), as: :carrier_route
     option :links
+
+    def self.search(options)
+      Corelogic.properties.search(options)
+    end
   end
-
-
 end

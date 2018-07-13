@@ -22,19 +22,35 @@ Or install it yourself as:
 
     $ gem install corelogic-ruby
 
+## Configuring Corelogic
+
+```ruby
+Corelogic.configure(consumer_key: 'your_client_id', consumer_secret: 'your_client_secret')
+```
+Or alternatively:
+```ruby
+Corelogic.configure do c
+    c.consumer_key = 'your_client_id'
+    c.consumer_secret = 'your_client_secret'
+end
+```
 ## Usage
+###Property Search
+Search the CoreLogic database for a property based on the input address and returns a unique CoreLogic PropertyID for use in subsequent API calls for other CoreLogic Property Data. Requires address and either zip5 or city and state.
+For example:
+```ruby
+result = Corelogic::Property.search(zip5: '01106', address: '103 Birchwood Ave, Longmeadow, MA, 01106')
+```
+If the properties are found, the `result` will contain an array of `Corelogic::Property` objects.
 
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
+Otherwise, if nothing is found:
+```ruby
+res = Corelogic::Property.search(zip5: '0000', address: '103 Birchwood Ave, Longmeadow, MA, 01106')
+Corelogic::Error::NotFound: No records returned from search
+```
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/corelogic-ruby.
+Bug reports and pull requests are welcome on GitHub at https://github.com/jetrockets/corelogic-ruby.
 
 ## License
 

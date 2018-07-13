@@ -5,7 +5,7 @@ module Corelogic
   class ResponseParser
     class << self
       def perform(response)
-        response_body = response.body.empty? ? '' : Corelogic::Utils.deep_symbolize_keys(response.parse(:json))
+        response_body = (response.body.nil? || response.body.empty?) ? '' : Corelogic::Utils.deep_symbolize_keys(response.parse(:json))
         error_filter(response.code, response_body)
       end
 

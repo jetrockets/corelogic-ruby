@@ -1,5 +1,6 @@
 
 require 'dry-initializer'
+
 module Corelogic
   class Property
     extend Dry::Initializer
@@ -26,4 +27,6 @@ module Corelogic
     option :carrierRoute, proc(&:to_s), as: :carrier_route
     option :links
   end
+
+
 end

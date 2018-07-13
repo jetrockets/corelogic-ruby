@@ -14,11 +14,8 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/jetrockets/corelogic-ruby"
   spec.license       = "MIT"
 
-  spec.files         = Dir[
-                          'README.md',
-                          'LICENSE',
-                          'lib/**/*'
-                        ]
+  spec.executables   = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
+  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "bin"
 
   spec.require_paths = ["lib"]

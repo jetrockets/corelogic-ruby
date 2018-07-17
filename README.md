@@ -29,7 +29,7 @@ Corelogic.configure(consumer_key: 'your_client_id', consumer_secret: 'your_clien
 ```
 Or alternatively:
 ```ruby
-Corelogic.configure do c
+Corelogic.configure do |c|
     c.consumer_key = 'your_client_id'
     c.consumer_secret = 'your_client_secret'
 end

@@ -6,7 +6,7 @@ describe Corelogic do
   end
 
   describe 'Corelogic#container' do
-    it { expect(Corelogic.container.keys.size).to eq(3)}
+    it { expect(Corelogic.container.keys.size).to eq(3) }
 
     it 'should contain `authenticator` key' do
       expect(Corelogic.container.resolve('authenticator')).to be
@@ -14,6 +14,10 @@ describe Corelogic do
 
     it '`authenticator` should be an instance of `Corelogic::Authenticator`' do
       expect(Corelogic.container.resolve('authenticator')).to be_an_instance_of(Corelogic::Authenticator)
+    end
+
+    it 'should contain `connection` key' do
+      expect(Corelogic.container.resolve('connection')).to be
     end
 
     it '`connection` should be an instance of `Corelogic::Connection`' do

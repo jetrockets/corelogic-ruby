@@ -55,7 +55,7 @@ Get detailed property ownership data based on an input CoreLogic PropertyID.
 ownership = result.first.ownership
 => #<Corelogic::Property::Ownership:0x007fe422132460 ...>
 ```
-Where `result` - the result of success Property Search/
+Where `result` - the result of success Property Search
 
 ## Contributing
 

@@ -35,8 +35,5 @@ module Corelogic
       Corelogic.properties.ownership(self.id)
     end
 
-    def to_json(options = nil)
-      self.class.dry_initializer.public_attributes(self).to_json(options)
-    end
   end
 end

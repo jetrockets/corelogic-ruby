@@ -30,6 +30,7 @@ describe Corelogic::Authenticator do
     context 'connection is not authenticated' do
       let(:token) { JSON.parse(oauth_success_body)['access_token'] }
       before do
+        allow(connection).to receive(:authenticated?).and_return(false)
         authenticator.call(connection)
       end
       it 'requests the correct resource' do

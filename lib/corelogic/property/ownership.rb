@@ -25,5 +25,6 @@ module Corelogic
     option :corporateOwner, proc(&:to_s), as: :corporate_owner
     option :ownerVestingCode, proc(&:to_s), as: :owner_vesting_code
     option :links
+
   end
 end

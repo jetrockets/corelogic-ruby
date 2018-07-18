@@ -4,7 +4,52 @@ FactoryBot.define do
     access_token Faker::Internet.password
     expires_in '3599'
     token_type 'Bearer'
-    initialize_with { attributes.stringify_keys }
+  end
+
+  factory :oauth_error_body, class: OpenStruct do
+    skip_create
+    fault do
+      {
+        faultstring: "Invalid access token",
+        detail: { errorcode: "oauth.v2.InvalidAccessToken" }
+      }
+    end
+  end
+
+  factory :ownership_response, class: OpenStruct do
+    skip_create
+    corelogicPropertyId "34025:7372209"
+    compositePropertyId "34025:7372209"
+    ownerName1 "RAMAN GITA"
+    ownerName2 "BHARADWAJ SUBASH"
+    vestingOwner1 "RAMAN GITA"
+    vestingOwner2 "BHARADWAJ SUBASH"
+    vestingOwner3 ""
+    vestingOwner4 ""
+    mailingAddress "4 VAN OVER DR"
+    mailingCityState "OLD BRIDGE NJ"
+    mailingZip5 "08857"
+    mailingZip4 "3756"
+    mailingCarrierRoute "R003"
+    mailingCareOfName ""
+    phoneNumber ""
+    vestingEtal ""
+    vestingOwnershipRight ""
+    ownerOccupiedInd "A"
+    pendingRecordInd nil
+    corporateOwner ""
+    ownerVestingCode ""
+    links {
+      [{
+        "rel": "self",
+        "href": "https://api-prod.corelogic.com/property/34025:7372209/ownership",
+        "hreflang": nil,
+        "media": nil,
+        "title": nil,
+        "type": "application/vnd.corelogic.v1+json",
+        "deprecation": nil
+      }]
+    }
   end
 
   factory :property, class: Corelogic::Property do

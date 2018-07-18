@@ -14,8 +14,8 @@ module Corelogic
     def call(connection, options = {})
       options = options.dup
       options[:grant_type] ||= 'client_credentials'
-      options[:force] ||= false
-      return connection if !options[:force] && connection.authenticated?
+      force = options.delete(:force) || false
+      return connection if !force && connection.authenticated?
 
       response = HTTP.basic_auth(credentials).post(OAUTH_URL, params: options)
       token = Corelogic::ResponseParser.perform(response)[:access_token]

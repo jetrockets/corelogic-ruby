@@ -10,10 +10,6 @@ module Corelogic
 
     BASE_PATH = 'https://api-prod.corelogic.com/'.freeze
 
-    def post(path, params = {})
-      HTTP.auth(bearer_auth_header).post(url(path), params)
-    end
-
     def get(path, params = {})
       HTTP.auth(bearer_auth_header).get(url(path), params)
     end

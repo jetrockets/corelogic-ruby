@@ -13,19 +13,33 @@ module Corelogic
       SEARCH_PATH = 'property'
 
       def search(options = {})
-        response = perform_connection.get(SEARCH_PATH, params: options)
-        Corelogic::Collection.new(Corelogic::Property, response_parser.perform(response))
+        Corelogic::Collection.new(Corelogic::Property, perform_get(SEARCH_PATH, options))
       end
 
       def ownership(property_id)
         path = "property/#{property_id}/ownership"
-        response = perform_connection.get(path)
-        Property::Ownership.new(response_parser.perform(response))
+        Property::Ownership.new(perform_get(path))
       end
 
       private
 
-      def perform_connection
+      def perform_get(path, options = {})
+        ret = 0
+        begin
+          ret += 1
+          response_parser.perform(perform_connection.get(path, params: options))
+        rescue Corelogic::Error::Unauthorized => e
+          puts e.message
+          if ret < 2
+            puts "Retry: #{ret}"
+            perform_connection(true)
+            retry
+          end
+        end
+      end
+
+      def perform_connection(force = false)
+        return authenticator.call(connection, force: true) if force
         connection.authenticated? ? connection : authenticator.call(connection)
       end
 

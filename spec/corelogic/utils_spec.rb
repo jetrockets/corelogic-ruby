@@ -28,6 +28,8 @@ RSpec.describe Corelogic::Utils do
     it 'should raise `ArgumentError`' do
       expect do
         utils.validate_keys({ :foo => 'foo', :bar => 'jpg' }, [:input, :inputformat])
+      end.to raise_error(ArgumentError, 'Required key(s): input, inputformat')
+      expect do
         utils.validate_keys({ :foo => 'foo', :bar => 'jpg' }, :input, :inputformat)
       end.to raise_error(ArgumentError, 'Required key(s): input, inputformat')
     end

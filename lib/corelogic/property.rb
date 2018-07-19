@@ -7,7 +7,7 @@ module Corelogic
 
     option :corelogicPropertyId, as: :id
     option :compositePropertyId, as: :composite_id
-    option :streetAddress, proc(&:to_s), as: :street_addresse
+    option :streetAddress, proc(&:to_s), as: :street_address
     option :houseNumber, proc(&:to_s), as: :house_number
     option :houseNumber2, proc(&:to_s), as: :house_number2
     option :preDirection, proc(&:to_s), as: :pre_direction

@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.bindir        = "bin"
 
   spec.require_paths = ["lib"]
-  spec.required_ruby_version = '~> 2.4'
+  spec.required_ruby_version = '~> 2.3'
 
   # a b c d e f g h i j k l m n o p q r s t u v w x y z
   spec.add_dependency 'dry-auto_inject'

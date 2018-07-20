@@ -7,6 +7,7 @@ module Corelogic
     Forbidden = Class.new(self)
     NotFound = Class.new(self)
     InternalServerError = Class.new(self)
+    TooManyRequests = Class.new(self)
 
     ERRORS_MAP = {
       400 => Corelogic::Error::BadRequest,

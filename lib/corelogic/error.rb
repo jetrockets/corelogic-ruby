@@ -13,6 +13,7 @@ module Corelogic
       401 => Corelogic::Error::Unauthorized,
       403 => Corelogic::Error::Forbidden,
       404 => Corelogic::Error::NotFound,
+      429 => Corelogic::Error::TooManyRequests,
       500 => Corelogic::Error::InternalServerError
     }.freeze
 

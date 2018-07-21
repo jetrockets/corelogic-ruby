@@ -6,26 +6,26 @@ module Corelogic
     extend Dry::Initializer
 
     option :corelogicPropertyId, as: :id
-    option :compositePropertyId, as: :composite_id
+    option :compositePropertyId, as: :composite_id, optional: true
     option :streetAddress, proc(&:to_s), as: :street_address
-    option :houseNumber, proc(&:to_s), as: :house_number
-    option :houseNumber2, proc(&:to_s), as: :house_number2
-    option :preDirection, proc(&:to_s), as: :pre_direction
-    option :streetName, proc(&:to_s), as: :street_name
-    option :streetSuffix, proc(&:to_s), as: :street_suffix
-    option :postDirection, proc(&:to_s), as: :post_direction
-    option :unitNumber, proc(&:to_s), as: :unit_number
-    option :city, proc(&:to_s)
-    option :zipcode, proc(&:to_s)
-    option :zip4, proc(&:to_s)
-    option :state, proc(&:to_s)
-    option :latitude, proc(&:to_f)
-    option :longitude, proc(&:to_f)
-    option :fipsCode, proc(&:to_s), as: :fips_code
-    option :parcelNumber, proc(&:to_s), as: :parcel_number
-    option :parcelSequence, proc(&:to_s), as: :parcel_sequence
-    option :carrierRoute, proc(&:to_s), as: :carrier_route
-    option :links
+    option :houseNumber, proc(&:to_s), as: :house_number, optional: true
+    option :houseNumber2, proc(&:to_s), as: :house_number2, optional: true
+    option :preDirection, proc(&:to_s), as: :pre_direction, optional: true
+    option :streetName, proc(&:to_s), as: :street_name, optional: true
+    option :streetSuffix, proc(&:to_s), as: :street_suffix, optional: true
+    option :postDirection, proc(&:to_s), as: :post_direction, optional: true
+    option :unitNumber, proc(&:to_s), as: :unit_number, optional: true
+    option :city, proc(&:to_s), optional: true
+    option :zipcode, proc(&:to_s), optional: true
+    option :zip4, proc(&:to_s), optional: true
+    option :state, proc(&:to_s), optional: true
+    option :latitude, proc(&:to_f), optional: true
+    option :longitude, proc(&:to_f), optional: true
+    option :fipsCode, proc(&:to_s), as: :fips_code, optional: true
+    option :parcelNumber, proc(&:to_s), as: :parcel_number, optional: true
+    option :parcelSequence, proc(&:to_s), as: :parcel_sequence, optional: true
+    option :carrierRoute, proc(&:to_s), as: :carrier_route, optional: true
+    option :links, optional: true
 
     def self.search(options)
       Corelogic.properties.search(options)

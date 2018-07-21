@@ -7,7 +7,7 @@ module Corelogic
     attr_reader :members, :klass, :raw_hash, :total_pages, :current_page, :limit_value, :total_records
 
     def initialize(klass, raw_hash)
-      @klass = klass
+      @klass = klass.is_a?(::String) ? ::Object.const_get(klass) : klass
       @raw_hash = raw_hash
 
       @total_pages = raw_hash[:totalPages] || 1
@@ -15,9 +15,9 @@ module Corelogic
       @limit_value = raw_hash[:pageSize] || DEFAULT_RECORDS_LIMIT
       @total_records = raw_hash[:totalRecords]
 
-      if !raw_hash[:data].nil? && !raw_hash[:data].empty?
-        @members = raw_hash[:data].map do |record|
-          klass.new(record)
+      if !@raw_hash[:data].nil? && !@raw_hash[:data].empty?
+        @members = @raw_hash[:data].map do |record|
+          @klass.new(record)
         end
       else
         @members = []

@@ -1,4 +1,7 @@
 [![Build Status](https://travis-ci.org/jetrockets/corelogic-ruby.svg?branch=master)](https://travis-ci.org/jetrockets/corelogic-ruby)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/92a2dbaed71a83277c63/test_coverage)](https://codeclimate.com/github/jetrockets/corelogic-ruby/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/92a2dbaed71a83277c63/maintainability)](https://codeclimate.com/github/jetrockets/corelogic-ruby/maintainability)
+
 
 # Corelogic
 

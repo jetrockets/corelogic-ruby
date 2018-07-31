@@ -58,6 +58,10 @@ module Corelogic
       @last_market_sale ||= Corelogic.properties.last_market_sale(self.id)
     end
 
+    def prior_sale
+      @prior_sale ||= Corelogic.properties.prior_sale(self.id)
+    end
+
     def load_details
     end
 

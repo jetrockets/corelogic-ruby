@@ -7,8 +7,6 @@
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/corelogic`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -42,23 +40,34 @@ end
 Search the CoreLogic database for a property based on the input address and returns a unique CoreLogic PropertyID for use in subsequent API calls for other CoreLogic Property Data. Requires address and either zip5 or city and state.
 For example:
 ```ruby
-result = Corelogic::Property.search(zip5: '01106', address: '103 Birchwood Ave, Longmeadow, MA, 01106')
+result = Corelogic::Property.search(zip5: 'target_zip', address: 'target_address')
 ```
 If the properties are found, the `result` will contain an array of `Corelogic::Property` objects.
 
-Otherwise, if nothing is found:
-```ruby
-result = Corelogic::Property.search(zip5: '0000', address: '103 Birchwood Ave, Longmeadow, MA, 01106')
-```
-Returns `Corelogic::Error::NotFound: No records returned from search`
+Otherwise, if nothing is found, search returns `Corelogic::Error::NotFound: No records returned from search`
 
-### Property Ownership
+### Property data
+Get Property data by CoreLogic PropertyID
+For example:
+````ruby
+property = Corelogic::Property.new(corelogicPropertyId: 'someCorelogicPropertyId')
+
+````
+#### Property Ownership
 Get detailed property ownership data based on an input CoreLogic PropertyID.
 ```ruby
-ownership = result.first.ownership
+property.ownership
 => #<Corelogic::Property::Ownership:0x007fe422132460 ...>
 ```
-Where `result` - the result of success Property Search
+#### Following methods are provided for an `Corelogic::Property` instance.
+    #ownership,
+    #building,
+    #tax_assessment,
+    #site,
+    #location,
+    #owner_transfer,
+    #last_market_sale,
+    #prior_sale
 
 ## Contributing
 

@@ -5,8 +5,6 @@
 
 # Corelogic
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/corelogic`. To experiment with that code, run `bin/console` for an interactive prompt.
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -47,7 +45,7 @@ If the properties are found, the `result` will contain an array of `Corelogic::P
 Otherwise, if nothing is found, search returns `Corelogic::Error::NotFound: No records returned from search`
 
 ### Property data
-Get Property data by CoreLogic PropertyID
+Get Property data by CoreLogic PropertyID.
 For example:
 ````ruby
 property = Corelogic::Property.new(corelogicPropertyId: 'someCorelogicPropertyId')

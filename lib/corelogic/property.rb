@@ -46,6 +46,10 @@ module Corelogic
       @site ||= Corelogic.properties.site(self.id)
     end
 
+    def location
+      @location ||= Corelogic.properties.location(self.id)
+    end
+
     def load_details
     end
 

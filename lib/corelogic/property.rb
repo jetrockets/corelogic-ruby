@@ -50,6 +50,10 @@ module Corelogic
       @location ||= Corelogic.properties.location(self.id)
     end
 
+    def owner_transfer
+      @owner_transfer ||= Corelogic.properties.owner_transfer(self.id)
+    end
+
     def load_details
     end
 

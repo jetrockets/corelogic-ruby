@@ -6,6 +6,7 @@ require "corelogic/property/building"
 require "corelogic/property/tax_assessment"
 require "corelogic/property/site"
 require "corelogic/property/location"
+require "corelogic/property/owner_transfer"
 
 module Corelogic
   module API
@@ -38,6 +39,10 @@ module Corelogic
 
       def location(property_id)
         Property::Location.new(perform_response("property/#{property_id}/location"))
+      end
+
+      def owner_transfer(property_id)
+        Property::OwnerTransfer.new(perform_response("property/#{property_id}/owner-transfer"))
       end
 
       private

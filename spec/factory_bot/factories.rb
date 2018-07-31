@@ -15,22 +15,21 @@ FactoryBot.define do
       }
     end
   end
-
   factory :ownership_response, class: OpenStruct do
     skip_create
-    corelogicPropertyId "34025:7372209"
-    compositePropertyId "34025:7372209"
-    ownerName1 "RAMAN GITA"
-    ownerName2 "BHARADWAJ SUBASH"
-    vestingOwner1 "RAMAN GITA"
-    vestingOwner2 "BHARADWAJ SUBASH"
+    corelogicPropertyId { "#{Faker::Number.number(5)}:#{Faker::Number.number(8)}" }
+    compositePropertyId { "#{Faker::Number.number(5)}:#{Faker::Number.number(8)}" }
+    ownerName1 Faker::StarWars.character
+    ownerName2 Faker::StarWars.character
+    vestingOwner1 Faker::StarWars.character
+    vestingOwner2 Faker::StarWars.character
     vestingOwner3 ""
     vestingOwner4 ""
-    mailingAddress "4 VAN OVER DR"
-    mailingCityState "OLD BRIDGE NJ"
-    mailingZip5 "08857"
-    mailingZip4 "3756"
-    mailingCarrierRoute "R003"
+    mailingAddress Faker::Address.street_address
+    mailingCityState { "#{Faker::Address.city} #{Faker::Address.state_abbr}" }
+    mailingZip5 Faker::Address.zip_code
+    mailingZip4 Faker::Address.zip_code
+    mailingCarrierRoute ""
     mailingCareOfName ""
     phoneNumber ""
     vestingEtal ""
@@ -42,7 +41,7 @@ FactoryBot.define do
     links {
       [{
         "rel": "self",
-        "href": "https://api-prod.corelogic.com/property/34025:7372209/ownership",
+        "href": "https://api-prod.corelogic.com/property/00000:00000000/ownership",
         "hreflang": nil,
         "media": nil,
         "title": nil,
@@ -60,7 +59,7 @@ FactoryBot.define do
     houseNumber2 nil
     preDirection nil
     streetName Faker::Address.street_name
-    streetSuffix "AVE"
+    streetSuffix Faker::Address.street_suffix
     postDirection nil
     unitNumber nil
     city Faker::Address.city

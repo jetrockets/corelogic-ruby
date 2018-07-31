@@ -7,6 +7,7 @@ require "corelogic/property/tax_assessment"
 require "corelogic/property/site"
 require "corelogic/property/location"
 require "corelogic/property/owner_transfer"
+require "corelogic/property/last_market_sale"
 
 module Corelogic
   module API
@@ -43,6 +44,10 @@ module Corelogic
 
       def owner_transfer(property_id)
         Property::OwnerTransfer.new(perform_response("property/#{property_id}/owner-transfer"))
+      end
+
+      def last_market_sale(property_id)
+        Property::LastMarketSale.new(perform_response("property/#{property_id}/last-market-sale"))
       end
 
       private

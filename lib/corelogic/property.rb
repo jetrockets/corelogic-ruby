@@ -54,6 +54,10 @@ module Corelogic
       @owner_transfer ||= Corelogic.properties.owner_transfer(self.id)
     end
 
+    def last_market_sale
+      @last_market_sale ||= Corelogic.properties.last_market_sale(self.id)
+    end
+
     def load_details
     end
 

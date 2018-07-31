@@ -2,6 +2,7 @@ require "corelogic/response_parser"
 require "corelogic/collection"
 require "corelogic/property"
 require "corelogic/property/ownership"
+require "corelogic/property/building"
 
 module Corelogic
   module API
@@ -18,6 +19,10 @@ module Corelogic
 
       def ownership(property_id)
         Property::Ownership.new(perform_response("property/#{property_id}/ownership"))
+      end
+
+      def building(property_id)
+        Property::Building.new(perform_response("property/#{property_id}/building"))
       end
 
       private

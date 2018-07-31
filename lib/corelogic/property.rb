@@ -1,4 +1,3 @@
-
 require 'dry-initializer'
 
 module Corelogic
@@ -32,7 +31,14 @@ module Corelogic
     end
 
     def ownership
-      Corelogic.properties.ownership(self.id)
+      @ownership ||= Corelogic.properties.ownership(self.id)
+    end
+
+    def building
+      @building ||= Corelogic.properties.building(self.id)
+    end
+
+    def load_details
     end
 
   end

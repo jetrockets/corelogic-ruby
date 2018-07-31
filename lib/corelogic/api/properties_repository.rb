@@ -55,6 +55,20 @@ module Corelogic
         Property::PriorSale.new(perform_response("property/#{property_id}/prior-sale"))
       end
 
+      def property_detail(property)
+        response = perform_response("property/#{property.id}/property-detail")
+
+        property.ownership = Property::Ownership.new(response[:ownership]) if response[:ownership]
+        property.building = Property::Building.new(response[:building]) if response[:building]
+        property.tax_assessment = Property::TaxAssessment.new(response[:taxAssessment]) if response[:taxAssessment]
+        property.site = Property::Site.new(response[:site]) if response[:site]
+        property.location = Property::Location.new(response[:location]) if response[:location]
+        property.owner_transfer = Property::OwnerTransfer.new(response[:ownerTransfer]) if response[:ownerTransfer]
+        property.last_market_sale = Property::LastMarketSale.new(response[:lastMarketSale]) if response[:lastMarketSale]
+        property.prior_sale = Property::PriorSale.new(response[:priorSale]) if response[:priorSale]
+        property
+      end
+
       private
 
       def perform_response(path, options = {})

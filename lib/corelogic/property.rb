@@ -34,35 +34,68 @@ module Corelogic
       @ownership ||= Corelogic.properties.ownership(self.id)
     end
 
+    def ownership=(v)
+      @ownership = v
+    end
+
     def building
       @building ||= Corelogic.properties.building(self.id)
+    end
+
+    def building=(v)
+      @building = v
     end
 
     def tax_assessment
       @tax_assessment ||= Corelogic.properties.tax_assessment(self.id)
     end
 
+    def tax_assessment=(v)
+      @tax_assessment = v
+    end
+
     def site
       @site ||= Corelogic.properties.site(self.id)
+    end
+
+    def site=(v)
+      @site = v
     end
 
     def location
       @location ||= Corelogic.properties.location(self.id)
     end
 
+    def location=(v)
+      @location = v
+    end
+
     def owner_transfer
       @owner_transfer ||= Corelogic.properties.owner_transfer(self.id)
+    end
+
+    def owner_transfer=(v)
+      @owner_transfer = v
     end
 
     def last_market_sale
       @last_market_sale ||= Corelogic.properties.last_market_sale(self.id)
     end
 
+    def last_market_sale=(v)
+      @last_market_sale = v
+    end
+
     def prior_sale
       @prior_sale ||= Corelogic.properties.prior_sale(self.id)
     end
 
+    def prior_sale=(v)
+      @prior_sale = v
+    end
+
     def load_details
+      @details ||= Corelogic.properties.property_detail(self)
     end
 
   end

@@ -4,6 +4,7 @@ require "corelogic/property"
 require "corelogic/property/ownership"
 require "corelogic/property/building"
 require "corelogic/property/tax_assessment"
+require "corelogic/property/site"
 
 module Corelogic
   module API
@@ -28,6 +29,10 @@ module Corelogic
 
       def tax_assessment(property_id)
         Property::TaxAssessment.new(perform_response("property/#{property_id}/tax-assessment"))
+      end
+
+      def site(property_id)
+        Property::Site.new(perform_response("property/#{property_id}/site"))
       end
 
       private

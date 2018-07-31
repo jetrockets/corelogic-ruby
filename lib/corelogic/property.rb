@@ -42,6 +42,10 @@ module Corelogic
       @tax_assessment ||= Corelogic.properties.tax_assessment(self.id)
     end
 
+    def site
+      @site ||= Corelogic.properties.site(self.id)
+    end
+
     def load_details
     end
 

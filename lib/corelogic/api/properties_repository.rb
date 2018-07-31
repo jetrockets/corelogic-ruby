@@ -3,6 +3,7 @@ require "corelogic/collection"
 require "corelogic/property"
 require "corelogic/property/ownership"
 require "corelogic/property/building"
+require "corelogic/property/tax_assessment"
 
 module Corelogic
   module API
@@ -25,6 +26,10 @@ module Corelogic
         Property::Building.new(perform_response("property/#{property_id}/building"))
       end
 
+      def tax_assessment(property_id)
+        Property::TaxAssessment.new(perform_response("property/#{property_id}/tax-assessment"))
+      end
+
       private
 
       def perform_response(path, options = {})
@@ -35,7 +40,7 @@ module Corelogic
         rescue Corelogic::Error::Unauthorized => e
           puts e.message
           if try < 2
-            puts "Retry: #{try}"
+            puts "Retry: #{try}" if ENV['RAILS_ENV'] && ENV['RAILS_ENV'] == 'development'
             perform_connection(true)
             retry
           end

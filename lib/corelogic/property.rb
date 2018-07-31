@@ -38,6 +38,10 @@ module Corelogic
       @building ||= Corelogic.properties.building(self.id)
     end
 
+    def tax_assessment
+      @tax_assessment ||= Corelogic.properties.tax_assessment(self.id)
+    end
+
     def load_details
     end
 

@@ -5,7 +5,7 @@ module Corelogic
     extend Dry::Initializer
     option :corelogicPropertyId, proc(&:to_s), as: :corelogic_property_id
     option :compositePropertyId, proc(&:to_s), as: :composite_property_id, optional: true
-    option :ownerName1, proc(&:to_s), as: :owner_name1
+    option :ownerName1, proc(&:to_s), as: :owner_name1, optional: true
     option :ownerName2, proc(&:to_s), as: :owner_name2, optional: true
     option :vestingOwner1, proc(&:to_s), as: :vesting_owner1, optional: true
     option :vestingOwner2, proc(&:to_s), as: :vesting_owner2, optional: true

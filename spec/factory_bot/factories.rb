@@ -15,45 +15,17 @@ FactoryBot.define do
       }
     end
   end
-  factory :ownership_response, class: OpenStruct do
+
+  factory :common_response, class: OpenStruct do
     skip_create
-    corelogicPropertyId { "#{Faker::Number.number(5)}:#{Faker::Number.number(8)}" }
-    compositePropertyId { "#{Faker::Number.number(5)}:#{Faker::Number.number(8)}" }
-    ownerName1 Faker::StarWars.character
-    ownerName2 Faker::StarWars.character
-    vestingOwner1 Faker::StarWars.character
-    vestingOwner2 Faker::StarWars.character
-    vestingOwner3 ""
-    vestingOwner4 ""
-    mailingAddress Faker::Address.street_address
-    mailingCityState { "#{Faker::Address.city} #{Faker::Address.state_abbr}" }
-    mailingZip5 Faker::Address.zip_code
-    mailingZip4 Faker::Address.zip_code
-    mailingCarrierRoute ""
-    mailingCareOfName ""
-    phoneNumber ""
-    vestingEtal ""
-    vestingOwnershipRight ""
-    ownerOccupiedInd "A"
-    pendingRecordInd nil
-    corporateOwner ""
-    ownerVestingCode ""
-    links {
-      [{
-        "rel": "self",
-        "href": "https://api-prod.corelogic.com/property/00000:00000000/ownership",
-        "hreflang": nil,
-        "media": nil,
-        "title": nil,
-        "type": "application/vnd.corelogic.v1+json",
-        "deprecation": nil
-      }]
-    }
+    corelogicPropertyId { "#{Faker::Number.number(5)}:#{Faker::Number.number(7)}" }
+    compositePropertyId { "#{Faker::Number.number(5)}:#{Faker::Number.number(7)}" }
+    links { [{}] }
   end
 
   factory :property, class: Corelogic::Property do
-    corelogicPropertyId { "#{Faker::Number.number(5)}:#{Faker::Number.number(8)}" }
-    compositePropertyId { "#{Faker::Number.number(5)}:#{Faker::Number.number(8)}" }
+    corelogicPropertyId { "#{Faker::Number.number(5)}:#{Faker::Number.number(7)}" }
+    compositePropertyId { "#{Faker::Number.number(5)}:#{Faker::Number.number(7)}" }
     streetAddress Faker::Address.street_address
     houseNumber Faker::Address.building_number
     houseNumber2 nil

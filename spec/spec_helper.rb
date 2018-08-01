@@ -29,3 +29,7 @@ Corelogic.configure do |config|
   config.consumer_key = CONSUMER_KEY
   config.consumer_secret = CONSUMER_SECRET
 end
+
+def a_get(path)
+  a_request(:get, Corelogic::Connection::BASE_PATH + path)
+end

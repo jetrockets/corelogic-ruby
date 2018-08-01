@@ -68,9 +68,11 @@ property.ownership
     #prior_sale
     #load_details
 
-## Contributing
+## Credits
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/jetrockets/corelogic-ruby.
+Sponsored by [JetRockets](http://www.jetrockets.pro).
+
+![JetRockets](http://jetrockets.pro/JetRockets.jpg)
 
 ## License
 

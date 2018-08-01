@@ -58,6 +58,7 @@ module Corelogic
       def property_detail(property)
         response = perform_response("property/#{property.id}/property-detail")
 
+        property.assign_data!(response[:property])
         property.ownership = Property::Ownership.new(response[:ownership]) if response[:ownership]
         property.building = Property::Building.new(response[:building]) if response[:building]
         property.tax_assessment = Property::TaxAssessment.new(response[:taxAssessment]) if response[:taxAssessment]

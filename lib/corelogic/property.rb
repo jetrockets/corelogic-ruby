@@ -98,5 +98,9 @@ module Corelogic
       @details ||= Corelogic.properties.property_detail(self)
     end
 
+    def assign_data!(params = {})
+      send(:initialize, params.merge(corelogicPropertyId: id))
+    end
+
   end
 end

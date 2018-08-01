@@ -58,14 +58,15 @@ property.ownership
 => #<Corelogic::Property::Ownership:0x007fe422132460 ...>
 ```
 #### Following methods are provided for an `Corelogic::Property` instance.
-    #ownership,
-    #building,
-    #tax_assessment,
-    #site,
-    #location,
-    #owner_transfer,
-    #last_market_sale,
+    #ownership
+    #building
+    #tax_assessment
+    #site
+    #location
+    #owner_transfer
+    #last_market_sale
     #prior_sale
+    #load_details
 
 ## Contributing
 
